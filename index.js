@@ -1,10 +1,4 @@
 const { Server } = require("socket.io");
-const cors = require("cors");
-io.use(
-  cors({
-    origin: "https://kevin-chatweb.netlify.app",
-  })
-);
 const io = new Server({
   cors: {
     origin: "https://kevin-chatweb.netlify.app",
