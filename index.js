@@ -1,4 +1,11 @@
-const io = require("socket.io")("chatsocket-gold.vercel.app", {
+const { Server } = require("socket.io");
+const cors = require("cors");
+io.use(
+  cors({
+    origin: "https://kevin-chatweb.netlify.app",
+  })
+);
+const io = new Server({
   cors: {
     origin: "https://kevin-chatweb.netlify.app",
   },
@@ -50,3 +57,5 @@ io.on("connection", (socket) => {
     io.emit("getUsers", users);
   });
 });
+
+io.listen("8900");
